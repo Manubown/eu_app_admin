@@ -40,7 +40,7 @@ export const PROJECTS: ProjectDefinition[] = [
     db: "supabase",
     folder: "Graetzl",
     // TODO: fill in after first deploy
-    liveUrl: undefined,
+    liveUrl: "https://graetzl.vercel.app/",
     repoUrl: undefined,
     vercelProjectName: "graetzl",
     supabaseProjectRef: undefined,
@@ -54,6 +54,7 @@ export const PROJECTS: ProjectDefinition[] = [
     db: "postgres",
     folder: "stromoclock",
     vercelProjectName: "stromoclock",
+    liveUrl: "https://stromoclock.vercel.app/",
   },
   {
     slug: "bubbleboard",
