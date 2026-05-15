@@ -14,12 +14,25 @@ export function ProjectCard({ project }: { project: ProjectDefinition }) {
     <div className="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-5 hover:border-neutral-700 transition">
       <div className="flex items-start justify-between gap-2">
         <div>
-          <Link
-            href={`/projects/${project.slug}`}
-            className="text-lg font-semibold hover:text-white"
-          >
-            {project.name}
-          </Link>
+          <div className="flex items-center gap-2">
+            <Link
+              href={`/projects/${project.slug}`}
+              className="text-lg font-semibold hover:text-white"
+            >
+              {project.name}
+            </Link>
+            {links.live && (
+              <a
+                href={links.live}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="text-xs text-neutral-400 hover:text-white"
+                title={links.live}
+              >
+                ↗
+              </a>
+            )}
+          </div>
           <p className="mt-1 text-sm text-neutral-400">{project.tagline}</p>
         </div>
         <span
@@ -50,6 +63,9 @@ export function ProjectCard({ project }: { project: ProjectDefinition }) {
         )}
         {links.supabase && (
           <LinkButton href={links.supabase} label="Supabase" />
+        )}
+        {links.neon && (
+          <LinkButton href={links.neon} label="Neon" />
         )}
         {links.repo && (
           <LinkButton href={links.repo} label="Repo" />

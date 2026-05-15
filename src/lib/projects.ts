@@ -114,9 +114,13 @@ export function externalLinks(p: ProjectDefinition) {
     vercel: p.vercelProjectName
       ? `https://vercel.com/dashboard?search=${encodeURIComponent(p.vercelProjectName)}`
       : undefined,
-    supabase: p.supabaseProjectRef
-      ? `https://supabase.com/dashboard/project/${p.supabaseProjectRef}`
-      : undefined,
+    supabase:
+      p.db === "supabase"
+        ? p.supabaseProjectRef
+          ? `https://supabase.com/dashboard/project/${p.supabaseProjectRef}`
+          : "https://supabase.com/dashboard/projects"
+        : undefined,
+    neon: p.db === "postgres" ? "https://console.neon.tech/app/projects" : undefined,
     repo: p.repoUrl,
     live: p.liveUrl,
   };
